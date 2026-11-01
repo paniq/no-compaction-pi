@@ -99,9 +99,3 @@ export default function (pi: ExtensionAPI) {
 - pi only calls the hook when it has something to summarize. If the projected context is under
   `keepRecentTokens`, or the session is not persisted at all (`--no-session`), no compaction is
   attempted, so the pointer never appears. That is pi's behavior, not the extension's.
-- Nothing to guard for subagents: pi's compaction hook carries no agent id, and there is no
-  precompute pass to skip, so every compaction on a session gets the pointer. Nested tool calls
-  share the session's transcript, so they have no separate log to summarize.
-- Optional: editor type-checking needs `@earendil-works/pi-coding-agent` resolvable from the
-  folder you develop in. The extension runs fine without it, since pi loads the file through
-  jiti.
